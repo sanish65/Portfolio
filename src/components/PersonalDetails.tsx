@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import pp from '../../src/assets/pp.jpg'
 
 const Title = styled.h2`
   font-size: 1.8rem;
@@ -21,6 +22,8 @@ const Bio = styled.p`
   line-height: 1.6;
   text-align: center;
   margin-bottom: 2rem;
+  z-index: 1;
+
 `;
 
 const DetailsContainer = styled.section`
@@ -28,7 +31,7 @@ const DetailsContainer = styled.section`
   background-color: transparent;
   text-align: center;
   position: relative;
-  overflow: hidden; /* Ensure elements stay within the container */
+  overflow: hidden;
   z-index: 1;
 
   @media (min-width: 768px) {
@@ -66,7 +69,6 @@ const ContactItem = styled.p`
   color: #555;
 `;
 
-// Styled component for the background container
 const KeywordsContainer = styled.div`
   position: absolute;
   top: 0;
@@ -74,8 +76,8 @@ const KeywordsContainer = styled.div`
   right: 0;
   bottom: 0;
   z-index: -1;
-  overflow: hidden; /* Ensure elements don't spill out */
-  background-color: #000; /* Night sky background */
+  overflow: hidden;
+  background-color: #000;
 `;
 
 const Keyword = styled(motion.div)`
@@ -89,13 +91,11 @@ const Keyword = styled(motion.div)`
 const PersonalDetails: React.FC = () => {
   const skills = ['React', 'TypeScript', 'JavaScript', 'CSS', 'Node.js', 'Python'];
   const bio = 'Hey! I am Sanish Maharjan. I am a Software Engineer.';
-  const profilePicture = 'https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.jpg'; // Replace with your image URL.
+  // const profilePicture = 'https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.jpg'; // Replace with your image URL.
 
   // List of JavaScript keywords
   const keywords = [
-    'सनिस',
-    'महर्जन',
-    'नेपाली','function', 'const', 'let', 'var', 'return', 'class', 'if', 'else',
+    'function', 'const', 'let', 'var', 'return', 'class', 'if', 'else',
     'switch', 'case', 'default', 'import', 'export', 'async', 'await',
     'for', 'while', 'do', 'break', 'continue', 'try', 'catch', 'finally',
     'throw', 'new', 'this', 'typeof', 'instanceof', 'debugger',
@@ -110,34 +110,36 @@ const PersonalDetails: React.FC = () => {
 
     return (
       <Keyword
-      key={index}
-      style={{
-        top: `${startY}%`,
-        left: `${startX}%`,
-        fontSize: `${size}rem`,
-      }}
-      animate={{
-        // Add randomized movement along both axes
-        x: [
-          `${startX}%`,
-          `${startX + (Math.random() > 0.5 ? Math.random() * 50 : -Math.random() * 50)}vw`
-        ],
-        y: [
-          `${startY}%`,
-          `${startY + (Math.random() > 0.5 ? Math.random() * 50 : -Math.random() * 50)}%`
-        ],
-      }}
-      transition={{
-        duration, // Keep random duration for variety
-        repeat: Infinity, // Loop infinitely
-        repeatType: 'mirror', // Move back and forth (natural drift)
-        ease: 'easeInOut', // Smooth drift effect
-      }}
-    >
-      {keyword}
-    </Keyword>
-    
-    
+        key={index}
+        style={{
+          top: `${startY}%`,
+          left: `${startX}%`,
+          fontSize: `${size}rem`,
+        }}
+        animate={{
+          // Move in random directions
+          x: [
+            `${startX}%`,
+            `${startX + (Math.random() > 0.5 ? Math.random() * 50 : -Math.random() * 50)}vw`,
+          ],
+          y: [
+            `${startY}%`,
+            `${startY + (Math.random() > 0.5 ? Math.random() * 50 : -Math.random() * 50)}%`,
+          ],
+          scale: [
+            1, // Normal size
+            2, // Larger size when merging (simulation)
+          ],
+        }}
+        transition={{
+          duration, // Random duration for each keyword
+          repeat: Infinity, // Loop infinitely
+          repeatType: 'mirror', // Move back and forth (natural drift)
+          ease: 'easeInOut', // Smooth drift effect
+        }}
+      >
+        {keyword}
+      </Keyword>
     );
   });
 
@@ -149,7 +151,7 @@ const PersonalDetails: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <ProfilePicture src={profilePicture} alt="Profile" />
+        <ProfilePicture src={pp} alt="Profile" />
       </motion.div>
       <Title>About Me</Title>
       <motion.div
@@ -157,7 +159,7 @@ const PersonalDetails: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <Bio style={{ font : '30px', color: 'white'}}>{bio}</Bio>
+        <Bio style={{ font: '30px', color: 'white' }}>{bio}</Bio>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -1,35 +1,34 @@
 import React from "react";
+import { useTheme } from "./ThemeContext";
 import styled from "styled-components";
-import { useTheme } from './ThemeContext';
 
 const ToggleButton = styled.button`
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  background-color: ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.text === "#ffffff" ? "#000000" : "#ffffff"}; // Contrast color
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Position the button in the top-right corner */
+  position: fixed;
+  top: 20px;  /* Adjust this value to control the distance from the top */
+  right: 20px; /* Adjust this value to control the distance from the right */
+  z-index: 9999; /* Ensure the button stays on top of other elements */
 
   &:hover {
-    transform: scale(1.1);
-    background-color: ${(props) => props.theme.text}; /* Swap colors for hover */
-    color: ${(props) => props.theme.primary};
+    background-color: ${({ theme }) => theme.primary};
   }
 `;
-
 
 const ThemeToggle: React.FC = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <ToggleButton onClick={toggleTheme}>
-      {isDarkMode ? "Light Mode" : "Dark Mode"}
+      {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
     </ToggleButton>
   );
 };

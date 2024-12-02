@@ -1,25 +1,57 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  * {
+  /* Ensure full height and width for the page */
+  html, body {
+    height: 100%;
+    width: 100%;  /* Ensure the width takes up full screen */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
 
-  html, body, #root {
-    height: 100%;
-    width: 100%;
-  }
-
+  /* Body styling */
   body {
-    font-family: 'Arial', sans-serif;
-    background-color: ${(props) => props.theme.background}; /* Uses theme's background */
-    color: ${(props) => props.theme.text};                 /* Uses theme's text */
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
     transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;  /* Ensure the body takes up the full width */
   }
-`;
 
+  /* Ensure the root element uses the full viewport width */
+  #root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;  /* Ensure root container spans the entire width */
+  }
+
+  /* Styling for links */
+  a {
+    color: ${({ theme }) => theme.primary};
+    text-decoration: none;
+  }
+
+  /* Styling for buttons */
+  button {
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.text};
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    
+    &:hover {
+      background-color: ${({ theme }) => theme.primary};
+    }
+  }
+
+  /* Add more global styles here if necessary */
+`;
 
 export default GlobalStyle;

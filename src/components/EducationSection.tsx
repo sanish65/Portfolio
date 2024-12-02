@@ -81,34 +81,29 @@ const AnimatedLine = styled(motion.div)`
 
 const educationData = [
   {
-    institution: "University of Awesome",
-    degree: "Bachelor of Science in Computer Science",
-    duration: "2015 - 2019",
-    description: "Graduated with honors and specialized in web development and AI.",
+    institution: "Tribhuvan University",
+    degree: "Masters of Information Technology",
+    duration: "2023 - ongoing",
+    description: "Studying Information Technology.",
   },
   {
-    institution: "Tech Masters Academy",
-    degree: "Advanced Diploma in Full-Stack Development",
-    duration: "2019 - 2020",
-    description: "Built advanced applications using React, Node.js, and PostgreSQL.",
+    institution: "National College of Computer Studies",
+    degree: "Bachelors of Information Management",
+    duration: "2016 -  2021",
+    description: "Studied It and Management , a hybrid course to illustrate how businesses and management can be equipped with emerging IT.",
   },
   {
-    institution: "Online Courses",
-    degree: "Certified in Blockchain and Smart Contracts",
-    duration: "2021",
-    description: "Completed a hands-on course on decentralized apps and blockchain technologies.",
+    institution: "National College of Computer Studies",
+    degree: "Plus 2",
+    duration: "2014 -  2016",
+    description: "High school study in Management Sector.",
   },
   {
-    institution: "Online Courses",
-    degree: "Certified in Blockchain and Smart Contracts",
-    duration: "2021",
-    description: "Completed a hands-on course on decentralized apps and blockchain technologies.",
-  },  {
-    institution: "Online Courses",
-    degree: "Certified in Blockchain and Smart Contracts",
-    duration: "2021",
-    description: "Completed a hands-on course on decentralized apps and blockchain technologies.",
-  },
+    institution: "DeepJyoti Boarding Secondary School",
+    degree: "School",
+    duration: "2002 -  2014",
+    description: "Basic schooling",
+  }
 ];
 
 const EducationSection: React.FC = () => {

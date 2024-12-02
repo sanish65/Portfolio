@@ -61,6 +61,11 @@ const CardTitle = styled.h3`
   margin: 0.5rem 0;
 `;
 
+const Title = styled.h2`
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+`;
+
 const CardDescription = styled.p`
   font-size: 1rem;
   color: ${({ theme }) => theme?.secondaryText || "#555"};
@@ -69,47 +74,53 @@ const CardDescription = styled.p`
 const ProjectLinks: React.FC = () => {
   const links = [
     {
-      title: "Portfolio Website",
-      description: "My personal portfolio built with React and TypeScript.",
+      title: "Nestjs CQRS Pattern",
+      description: "A college project for bookiing system",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-      link: "https://github.com/yourusername/portfolio-website",
+      link: "https://github.com/sanish65/nestjs-cqrs-typeorm-postgres",
     },
     {
-      title: "E-Commerce Platform",
-      description: "An e-commerce app built with Next.js and TailwindCSS.",
+      title: "Data Tracker",
+      description: "My attempt to track covid data worldwide using open API.",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-      link: "https://github.com/yourusername/ecommerce-platform",
+      link: " https://github.com/sanish65/covidReact.git",
     },
     {
-      title: "Blog CMS",
-      description: "A content management system for blogs using Node.js.",
+      title: "Vending Machine",
+      description: "A cending machine like interface to do CRUDs",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-      link: "https://github.com/yourusername/blog-cms",
+      link: " https://github.com/sanish65/vending_machine-Mern_typescript.git (latest)",
     },
     {
-        title: "Blog CMS",
-        description: "A content management system for blogs using Node.js.",
-        image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-        link: "https://github.com/yourusername/blog-cms",
-      },
-      {
-        title: "Blog CMS",
-        description: "A content management system for blogs using Node.js.",
-        image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-        link: "https://github.com/yourusername/blog-cms",
-      },
-      {
-        title: "Blog CMS",
-        description: "A content management system for blogs using Node.js.",
-        image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-        link: "https://github.com/yourusername/blog-cms",
-      },
+      title: "A Booking UI",
+      description: "Abooking management system in React",
+      image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
+      link: "https://github.com/sanish65/hotelBookingUI.gi t",
+    },
+    {
+      title: "Expense tracker",
+      description: "A small money managemnt tool using PHP.",
+      image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
+      link: "https://github.com/sanish65/MisProj.gi t",
+    },
+    {
+      title: "Snooker time slot booking",
+      description: "A college project for bookiing system",
+      image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
+      link: "https://github.com/sanish65/SummerProject.git",
+    },
+    {
+      title: "Youtube clone",
+      description: "Build in React to use Youtube API's video data",
+      image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
+      link: "https://github.com/sanish65/youtube_clone",
+    }
     // Add more links here
   ];
 
   return (
     <LinksWrapper>
-      <SectionTitle>My Projects</SectionTitle>
+      <Title>My Projects</Title>
       <CardGrid>
         {links.map((link, index) => (
           <Card

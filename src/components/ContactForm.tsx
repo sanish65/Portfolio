@@ -1,62 +1,88 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
 const ContactContainer = styled.section`
-  padding: 2rem 1rem;
-  background-color: #f9f9f9;
+  padding: 3rem 1rem;
+  background-color: ${({ theme }) => theme.background};  // Use theme background
+  color: ${({ theme }) => theme.text};  // Use theme text color
   text-align: center;
+  min-height: 100vh;
 `;
 
 const Title = styled.h2`
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
+  color: ${({ theme }) => theme.text};  // Use theme text color
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
+  background-color: ${({ theme }) => theme.formBackground};  // Use theme for form background
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Input = styled.input`
-  padding: 0.8rem;
+  padding: 1rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid ${({ theme }) => theme.inputBorder};  // Use theme for border
   border-radius: 5px;
+  transition: all 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: ${({ theme }) => theme.primary};  // Use theme primary color for focus
+    box-shadow: 0 0 5px ${({ theme }) => theme.primary};  // Use theme primary color for focus
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.primary};  // Use theme primary color for hover
   }
 `;
 
 const TextArea = styled.textarea`
-  padding: 0.8rem;
+  padding: 1rem;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid ${({ theme }) => theme.inputBorder};  // Use theme for border
   border-radius: 5px;
   resize: none;
+  transition: all 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: ${({ theme }) => theme.primary};  // Use theme primary color for focus
+    box-shadow: 0 0 5px ${({ theme }) => theme.primary};  // Use theme primary color for focus
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.primary};  // Use theme primary color for hover
   }
 `;
 
 const Button = styled.button`
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem;
   font-size: 1rem;
-  background-color: #007bff;
-  color: white;
+  background-color: ${({ theme }) => theme.primary};  // Use theme primary color
+  color: ${({ theme }) => theme.text};  // Use theme text color
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({ theme }) => theme.primaryHover};  // Use theme for hover color
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.disabled};  // Use theme for disabled button
+    cursor: not-allowed;
   }
 `;
 
@@ -66,16 +92,32 @@ const ContactForm: React.FC = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Form submitted! Thank you."); // Replace this with actual integration.
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.sendForm(
+        "service_4flsndw",  // Your EmailJS Service ID
+        "template_gr6b84r", // Your EmailJS Template ID
+        e.target as HTMLFormElement,
+        "5P8KdXcqrxoaKprPO"      // Your EmailJS User ID
+      );
+      setStatusMessage("Message sent successfully!");
+    } catch (error) {
+      setStatusMessage("There was an error sending the message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", message: "" });
+    }
   };
 
   return (
@@ -111,8 +153,11 @@ const ContactForm: React.FC = () => {
             rows={5}
             required
           />
-          <Button type="submit">Send Message</Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send Message"}
+          </Button>
         </Form>
+        {statusMessage && <p>{statusMessage}</p>}
       </motion.div>
     </ContactContainer>
   );

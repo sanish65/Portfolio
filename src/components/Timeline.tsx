@@ -76,10 +76,9 @@ const EventDescription = styled.p`
 `;
 
 const events = [
-  { title: "Started Learning React", description: "Began my journey in web development.", id: 1 },
-  { title: "Created First Portfolio", description: "Showcased my projects.", id: 2 },
-  { title: "Learned TypeScript", description: "Improved my code quality.", id: 3 },
-  { title: "Built a Timeline Component", description: "Integrated animations in React.", id: 4 },
+  { title: "Internship", description: "At Visva Technikos Pvt Ltd", id: 1 },
+  { title: "Backend Developer", description: "At Outside Technology.", id: 2 },
+  { title: "Full Stack Engineer", description: "At Heubert Technology.", id: 3 },
 ];
 
 const Timeline = () => {
