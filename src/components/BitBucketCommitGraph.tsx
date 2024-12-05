@@ -6,6 +6,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 const BitBucketCommitGraph = () => {
   const [commits, setCommits] = useState<any[]>([]);
+  console.log(commits)
   const [chartData, setChartData] = useState<any>(null);
 
   const fetchCommits = async () => {

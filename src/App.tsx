@@ -49,8 +49,6 @@ import GitCommitGraph from "./components/GitCommitGraph";
 import BitbucketCommitGraph from "./components/BitBucketCommitGraph";
 import ResumeDownload from "./components/ResumeDownload";
 import Footer from "./components/Footer";
-import WebStatsPage from './components/webstats/WebStatsPage';
-import WebStatsSection from './components/webstats/WebStatsSection';
 
 const App: React.FC = () => {
   return (
@@ -72,12 +70,10 @@ const App: React.FC = () => {
                 <BitbucketCommitGraph />
                 <ResumeDownload />
                 <ContactForm />
-                <WebStatsSection />
                 <Footer />
               </>
             }
           />
-          <Route path="/web-stats" element={<WebStatsPage />} />
         </Routes>
       </CustomThemeProvider>
     </Router>

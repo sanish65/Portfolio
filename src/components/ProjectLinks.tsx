@@ -9,13 +9,6 @@ const LinksWrapper = styled.div`
   align-items: center;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: ${({ theme }) => theme?.primaryText || "#000"};
-`;
-
 const CardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -43,13 +36,13 @@ const Card = styled(motion.a)`
   }
 `;
 
-const CardImage = styled.div`
-  width: 100%;
-  height: 150px;
-  background-size: cover;
-  background-position: center;
-  border-bottom: 1px solid #ddd;
-`;
+// const CardImage = styled.div`
+//   width: 100%;
+//   height: 150px;
+//   background-size: cover;
+//   background-position: center;
+//   border-bottom: 1px solid #ddd;
+// `;
 
 const CardContent = styled.div`
   padding: 1rem;
@@ -89,19 +82,19 @@ const ProjectLinks: React.FC = () => {
       title: "Vending Machine",
       description: "A cending machine like interface to do CRUDs",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-      link: " https://github.com/sanish65/vending_machine-Mern_typescript.git (latest)",
+      link: " https://github.com/sanish65/vending_machine-Mern_typescript",
     },
     {
       title: "A Booking UI",
       description: "Abooking management system in React",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-      link: "https://github.com/sanish65/hotelBookingUI.gi t",
+      link: "https://github.com/sanish65/hotelBookingUI",
     },
     {
       title: "Expense tracker",
       description: "A small money managemnt tool using PHP.",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
-      link: "https://github.com/sanish65/MisProj.gi t",
+      link: "https://github.com/sanish65/MisProj",
     },
     {
       title: "Snooker time slot booking",
@@ -114,8 +107,13 @@ const ProjectLinks: React.FC = () => {
       description: "Build in React to use Youtube API's video data",
       image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
       link: "https://github.com/sanish65/youtube_clone",
-    }
-    // Add more links here
+    },
+    {
+      title: "Portfolio",
+      description: "A React made portfolio project",
+      image: "https://via.placeholder.com/300x150", // Replace with an actual screenshot
+      link: "https://github.com/sanish65/Portfolio",
+    },
   ];
 
   return (
@@ -131,11 +129,11 @@ const ProjectLinks: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <CardImage
+            {/* <CardImage
               style={{
                 backgroundImage: `url(${link.image})`,
               }}
-            />
+            /> */}
             <CardContent>
               <CardTitle>{link.title}</CardTitle>
               <CardDescription>{link.description}</CardDescription>

@@ -28,7 +28,7 @@ const GitCommitGraph: React.FC = () => {
     <SectionWrapper>
       <Title>GitHub Contributions</Title>
       <GraphWrapper>
-        <GitHubCalendar username={import.meta.env.VITE_GITHUB_USERNAME} color="#ff4e50" />
+        <GitHubCalendar username={import.meta.env.VITE_GITHUB_USERNAME} />
       </GraphWrapper>
     </SectionWrapper>
   );

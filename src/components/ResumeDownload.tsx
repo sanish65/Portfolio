@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const ResumeSection = styled.section`
   padding: 3rem 1rem;
-  background-color: ${({ theme }) => theme.background};  // Use theme background
-  color: ${({ theme }) => theme.text};  // Use theme text color
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
   text-align: center;
 `;
 
@@ -22,14 +22,14 @@ const ResumeButtonContainer = styled.div`
 
 const ResumeButton = styled.a`
   padding: 0.8rem 2rem;
-  background-color: ${({ theme }) => theme.primary};  // Use theme primary color
-  color: ${({ theme }) => theme.text};  // Use theme text color
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
   font-size: 1.2rem;
   border-radius: 5px;
   text-decoration: none;
 
   &:hover {
-    background-color: ${({ theme }) => theme.primary};  // Use theme primary color
+    background-color: ${({ theme }) => theme.primary};
   }
 `;
 
@@ -58,8 +58,8 @@ const PreviewModal = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background-color: ${({ theme }) => theme.background};  // Use theme background for modal content
-  color: ${({ theme }) => theme.text};  // Use theme text color
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
   padding: 2rem;
   max-width: 90%;
   max-height: 80%;
@@ -106,7 +106,7 @@ const PreviewContainer = styled.div`
 
 const ResumeDownload: React.FC = () => {
   const [showPreview, setShowPreview] = useState(false);
-  const resumePath = "/path-to-your-resume.pdf"; // Path to your resume PDF
+  const resumePath = "/sanish_resume.pdf";
 
   const togglePreviewModal = () => {
     setShowPreview(!showPreview);
@@ -126,7 +126,6 @@ const ResumeDownload: React.FC = () => {
         </ResumeButton>
       </ResumeButtonContainer>
 
-      {/* Modal for Preview */}
       {showPreview && (
         <PreviewModal onClick={togglePreviewModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}>

@@ -91,9 +91,7 @@ const Keyword = styled(motion.div)`
 const PersonalDetails: React.FC = () => {
   const skills = ['React', 'TypeScript', 'JavaScript', 'CSS', 'Node.js', 'Python'];
   const bio = 'Hey! I am Sanish Maharjan. I am a Software Engineer.';
-  // const profilePicture = 'https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.jpg'; // Replace with your image URL.
 
-  // List of JavaScript keywords
   const keywords = [
     'function', 'const', 'let', 'var', 'return', 'class', 'if', 'else',
     'switch', 'case', 'default', 'import', 'export', 'async', 'await',
@@ -103,10 +101,10 @@ const PersonalDetails: React.FC = () => {
 
   const animatedKeywords = Array.from({ length: 30 }).map((_, index) => {
     const keyword = keywords[Math.floor(Math.random() * keywords.length)];
-    const size = Math.random() * 1.5 + 0.8; // Random font size multiplier
-    const startX = Math.random() * 100; // Starting horizontal position
-    const startY = Math.random() * 100; // Starting vertical position
-    const duration = Math.random() * 10 + 5; // Random duration between 5 and 15 seconds
+    const size = Math.random() * 1.5 + 0.8; 
+    const startX = Math.random() * 100; 
+    const startY = Math.random() * 100; 
+    const duration = Math.random() * 10 + 5; 
 
     return (
       <Keyword
@@ -117,7 +115,6 @@ const PersonalDetails: React.FC = () => {
           fontSize: `${size}rem`,
         }}
         animate={{
-          // Move in random directions
           x: [
             `${startX}%`,
             `${startX + (Math.random() > 0.5 ? Math.random() * 50 : -Math.random() * 50)}vw`,
@@ -127,15 +124,15 @@ const PersonalDetails: React.FC = () => {
             `${startY + (Math.random() > 0.5 ? Math.random() * 50 : -Math.random() * 50)}%`,
           ],
           scale: [
-            1, // Normal size
-            2, // Larger size when merging (simulation)
+            1, 
+            2,
           ],
         }}
         transition={{
-          duration, // Random duration for each keyword
-          repeat: Infinity, // Loop infinitely
-          repeatType: 'mirror', // Move back and forth (natural drift)
-          ease: 'easeInOut', // Smooth drift effect
+          duration, 
+          repeat: Infinity, 
+          repeatType: 'mirror',
+          ease: 'easeInOut',
         }}
       >
         {keyword}

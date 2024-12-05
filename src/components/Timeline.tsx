@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -93,9 +93,7 @@ const Timeline = () => {
           initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
-          onClick={() => setSelectedEvent(selectedEvent === event.id ? null : event.id)} // Toggle on click
-          onMouseEnter={() => setSelectedEvent(event.id)} // Show on hover
-          onMouseLeave={() => setSelectedEvent(null)} // Hide on hover out
+          onClick={() => setSelectedEvent(selectedEvent === event.id ? null : event.id)}
         >
           <EventTitle>{event.title}</EventTitle>
           {selectedEvent === event.id && (

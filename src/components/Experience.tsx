@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 const ExperienceContainer = styled.section`
   padding: 2rem 1rem;
-  background-color: ${({ theme }) => theme.background}; // Use theme background
+  background-color: ${({ theme }) => theme.background};
   max-width: 100%;
-  margin-top: 100px; // Adjust space from top for sticky button
+  margin-top: 100px;
 `;
 
 const Title = styled.h2`
@@ -18,7 +17,7 @@ const Title = styled.h2`
 const Job = styled.div`
   margin-bottom: 2rem;
   background: ${({ theme }) =>
-    theme.background === "#121212" ? "#333" : "#fff"}; // Set background based on dark mode
+    theme.background === "#121212" ? "#333" : "#fff"};
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -32,12 +31,12 @@ const JobTitle = styled.h3`
 const Company = styled.p`
   font-size: 1.1rem;
   font-style: italic;
-  color: ${({ theme }) => (theme.text === "#ffffff" ? "#ddd" : "#666")}; // Light text in dark mode
+  color: ${({ theme }) => (theme.text === "#ffffff" ? "#ddd" : "#666")};
 `;
 
 const Duration = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => (theme.text === "#ffffff" ? "#bbb" : "#888")}; // Lighter color for dark mode
+  color: ${({ theme }) => (theme.text === "#ffffff" ? "#bbb" : "#888")}; 
 `;
 
 const DescriptionContainer = styled.div`
@@ -47,7 +46,7 @@ const DescriptionContainer = styled.div`
   margin-top: 1.5rem;
 `;
 
-const DescriptionCard = styled(motion.div)`
+const DescriptionCard = styled.div`
   width: 120px;
   height: 120px;
   display: flex;
@@ -91,7 +90,7 @@ const DescriptionText = styled.p`
 `;
 
 const Experience: React.FC = () => {
-  const [expandedCardIndex, setExpandedCardIndex] = useState<number | null>(
+  const [expandedCardIndex, setExpandedCardIndex] = useState<string | null>(
     null
   );
 
@@ -164,9 +163,6 @@ const Experience: React.FC = () => {
                     ? "expanded"
                     : ""
                 }
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 1 }}
-                layout
               >
                 <DescriptionText>
                   {expandedCardIndex === `${jobIndex}-${taskIndex}`

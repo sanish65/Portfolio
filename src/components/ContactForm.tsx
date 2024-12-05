@@ -77,11 +77,11 @@ const Button = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.primaryHover};  // Use theme for hover color
+    background-color: ${({ theme }) => theme.primaryHover};
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.disabled};  // Use theme for disabled button
+    background-color: ${({ theme }) => theme.disabled}; 
     cursor: not-allowed;
   }
 `;
@@ -106,10 +106,10 @@ const ContactForm: React.FC = () => {
 
     try {
       await emailjs.sendForm(
-        "service_4flsndw",  // Your EmailJS Service ID
-        "template_gr6b84r", // Your EmailJS Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+       import.meta.env.VITE_EMAIL_TEMPLATE,
         e.target as HTMLFormElement,
-        "5P8KdXcqrxoaKprPO"      // Your EmailJS User ID
+        import.meta.env.VITE_EMAIL_USER_ID
       );
       setStatusMessage("Message sent successfully!");
     } catch (error) {

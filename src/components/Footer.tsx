@@ -35,17 +35,14 @@ const Footer: React.FC = () => {
   return (
     <FooterContainer>
       <FooterLinks>
-        <FooterLink href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+        <FooterLink href="https://www.linkedin.com/in/sanish-maharjan-9a71551b7/" target="_blank" rel="noopener noreferrer">
           LinkedIn
         </FooterLink>
-        <FooterLink href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+        <FooterLink href="https://github.com/sanish65" target="_blank" rel="noopener noreferrer">
           GitHub
         </FooterLink>
-        <FooterLink href="https://twitter.com/your-username" target="_blank" rel="noopener noreferrer">
-          Twitter
-        </FooterLink>
       </FooterLinks>
-      <FooterText>&copy; 2024 Your Name. All rights reserved.</FooterText>
+      <FooterText>Thanks for visiting me!</FooterText>
     </FooterContainer>
   );
 };

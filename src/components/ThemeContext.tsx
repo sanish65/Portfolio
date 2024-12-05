@@ -26,12 +26,10 @@ interface CustomThemeProviderProps {
 export const CustomThemeProvider: React.FC<CustomThemeProviderProps> = ({
   children,
 }) => {
-  // Check the stored theme from localStorage (default to light if not set)
   const storedTheme = localStorage.getItem("theme");
   const [isDarkMode, setIsDarkMode] = useState(storedTheme === "dark");
 
   useEffect(() => {
-    // Store the theme in localStorage when it changes
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
